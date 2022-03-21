@@ -1,0 +1,4 @@
+<div *ngIf="personajes != null; else espera" class="row row-cols-1 row-cols-md-4 g-6 mx-5 mt-5">
+  <app-personaje-card *ngFor="let personaje of personajes" [personaje]="personaje"></app-personaje-card>
+</div>
+<ng-template #espera>Esperando datos...</ng-template>

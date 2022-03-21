@@ -1,0 +1,28 @@
+<div class="container" style="margin-top: 100px;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group my-2">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" [(ngModel)]="personaje.name" required>
+      </div>
+      <div class="form-group my-2">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control" [(ngModel)]="personaje.gender" required>
+      </div>
+      <div class="form-group my-2">
+        <label for="species">Species</label>
+        <input type="text" class="form-control" [(ngModel)]="personaje.species" required>
+      </div>
+      <div class="form-group my-2">
+        <label for="location">Location</label>
+        <input type="text" class="form-control" [(ngModel)]="personaje.location" required>
+      </div>
+
+      <button (click)="savePersonaje()" class="btn btn-success mt-3">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Character added correctly</h4>
+      <button (click)="newPersonaje()" class="btn btn-success">Add</button>
+    </div>
+  </div>
+</div>
