@@ -39,22 +39,16 @@ export class LoginComponent implements OnInit {
 
       //No funciona
       this.authService.usuario(username).subscribe(result => {
-        this.msg = result;
+        this.tokenStorage.saveUser(result);
       },
       err => {
-        this.msg = err.message;
-      });
-
-      this.tokenStorage.saveUser({
-        "id": 1,
-        "username": "GeeksHubs_2022",
-        "password": "$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.",
-        "role": "admin"
+        console.log(err.message);
       });
 
       this.isLoginFailed = false;
       this.isLoggedIn = true;
       this.rol = this.tokenStorage.getUser().role;
+      window.location.reload();
     },
     err => {
       this.errorMessage = err.message;
